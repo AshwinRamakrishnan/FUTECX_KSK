@@ -29,7 +29,7 @@
         // Usernames mapped to emails
         const users = {
             "principal": "ashwinkalai2k@gmail.com", // Principal's username
-            "teacher": "ashwinkalai60@gmail.com"   // Teacher's username
+            "staff": "ashwinkalai60@gmail.com"   // Teacher's username
         };
 
         // Login form handler
@@ -56,7 +56,7 @@
                     // Redirect based on role
                     if (username === "principal") {
                         window.location.href = 'principal_dashboard.html'; // Redirect to Principal Dashboard
-                    } else if (username === "teacher") {
+                    } else if (username === "staff") {
                         window.location.href = 'teacher_dashboard.html';   // Redirect to Teacher Dashboard
                     }
                 })
