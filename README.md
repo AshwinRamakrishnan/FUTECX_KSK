@@ -17,7 +17,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/your-username/attendance-app.git
+git clone https://github.com/AshwinRamakrishnan/FUTECX_KSK
 cd attendance-app
 Install dependencies (if needed for local development, though Firebase handles most of the functionality):
 
