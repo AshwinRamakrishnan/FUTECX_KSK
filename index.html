@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDUcPaGdOPQtsk9YqMeDWqvNKWFu7I-F_o",
+            authDomain: "test-420914.firebaseapp.com",
+            databaseURL: "https://test-420914-default-rtdb.firebaseio.com",
+            projectId: "test-420914",
+            storageBucket: "test-420914.appspot.com",
+            messagingSenderId: "551223275238",
+            appId: "1:551223275238:web:3d883e1e3ca2473d02d527",
+            measurementId: "G-S25F8L72DH"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Usernames mapped to emails
+        const users = {
+            "principal": "ashwinkalai2k@gmail.com", // Principal's username
+            "teacher": "ashwinkalai60@gmail.com"   // Teacher's username
+        };
+
+        // Login form handler
+        const loginForm = document.getElementById("login-form");
+        loginForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value; // Get username
+            const password = document.getElementById("password").value; // Get password
+
+            // Match username to email
+            const email = users[username];
+            if (!email) {
+                alert("Invalid username! Please try again.");
+                return;
+            }
+
+            // Authenticate with Firebase
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("Login successful!");
+                    const user = userCredential.user;
+
+                    // Redirect based on role
+                    if (username === "principal") {
+                        window.location.href = 'principal_dashboard.html'; // Redirect to Principal Dashboard
+                    } else if (username === "teacher") {
+                        window.location.href = 'teacher_dashboard.html';   // Redirect to Teacher Dashboard
+                    }
+                })
+                .catch((error) => {
+                    alert("Login failed: " + error.message);
+                });
+        });
+    </script>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your username">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,353 @@
+
+      /* Base Styling */
+      body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: linear-gradient(135deg, #b3e0ff, #99ccff); /* Cool gradient for calm feel */
+        color: #333;
+        line-height: 1.6;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+    
+    /* Fade In Animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    /* Header Styling */
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        color: #2980b9; /* Strong, cool blue for emphasis */
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        animation: bounceIn 1s ease;
+    }
+    
+    /* Bounce In Animation */
+    @keyframes bounceIn {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        70% {
+            transform: scale(1.2);
+            opacity: 0.9;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: slideIn 1s ease-out;
+    }
+    
+    /* Slide In Animation */
+    @keyframes slideIn {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    /* Table Styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 1.2rem;
+        border: 1px solid #ddd;
+    }
+    
+    th, td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+        background: linear-gradient(135deg, #6ab7ff, #4a90e2); /* Light blue gradient */
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: bold;
+        animation: glow 1.5s infinite alternate;
+    }
+    
+    @keyframes glow {
+        0% {
+            box-shadow: 0 0 10px rgba(106, 183, 255, 0.5);
+        }
+        100% {
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.7);
+        }
+    }
+    
+    td {
+        background-color: #f9f9f9;
+    }
+    
+    tr:hover td {
+        background: #e3f2fd;
+        transition: background-color 0.3s ease;
+    }
+    
+
+
+    /* Loading Spinner Style */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-top: 20px;
+    color: #007bff;
+}
+
+/* Other styles for summary and table (already included in the HTML, adjust as needed) */
+
+    /* Buttons */
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        font-size: 1rem;
+        color: white;
+        background: linear-gradient(135deg, #42a5f5, #1e88e5); /* Blue gradient */
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: background 0.3s ease, transform 0.3s ease;
+        animation: pulse 1.5s infinite alternate;
+    }
+    
+    .btn:hover {
+        background: linear-gradient(135deg, #1e88e5, #1565c0);
+        transform: translateY(-3px);
+    }
+    
+    /* Pulse Animation */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(66, 165, 245, 0.4);
+        }
+        50% {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(66, 165, 245, 0.7);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(66, 165, 245, 0.4);
+        }
+    }
+    
+    /* Inputs and Selects */
+    select, input[type="date"] {
+        padding: 12px;
+        font-size: 1rem;
+        margin: 10px 0;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 300px;
+        transition: border-color 0.3s ease;
+        background-color: #e3f2fd;
+    }
+    
+    select:focus, input[type="date"]:focus {
+        border-color: #42a5f5;
+        outline: none;
+        animation: glowInput 0.5s ease-in-out;
+    }
+    
+    @keyframes glowInput {
+        0% {
+            box-shadow: 0 0 10px rgba(66, 165, 245, 0.4);
+        }
+        100% {
+            box-shadow: 0 0 20px rgba(66, 165, 245, 0.7);
+        }
+    }
+    
+    /* Attendance Summary */
+    #attendance-summary {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .summary-card {
+        flex: 1;
+        min-width: 150px;
+        max-width: 300px;
+        padding: 20px;
+        background: linear-gradient(135deg, #6ab7ff, #4a90e2); /* Light blue gradient */
+        color: white;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        animation: float 2s infinite ease-in-out;
+        position: relative; /* To add icons */
+    }
+    
+    /* Floating Animation */
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    /* Icon for Total, Present, Absent Students */
+    .summary-card .icon {
+        font-size: 2.5rem; /* Larger icons for visibility */
+        margin-bottom: 10px;
+        animation: pulse 1.5s infinite alternate;
+    }
+    
+    /* Stats Text */
+    .summary-card span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+    
+    /* Stats Animation */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        h1 {
+            font-size: 2.4rem;
+        }
+        .container {
+            padding: 25px;
+        }
+        table {
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 12px;
+        }
+        .btn {
+            font-size: 1rem;
+            padding: 10px 22px;
+        }
+        select, input[type="date"] {
+            max-width: 100%;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .container {
+            padding: 20px;
+        }
+        table {
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 10px;
+        }
+        .btn {
+            font-size: 0.95rem;
+            padding: 10px 20px;
+        }
+        select, input[type="date"] {
+            max-width: 100%;
+        }
+        .summary-card {
+            flex: 1 1 calc(50% - 20px);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2rem;
+        }
+        .container {
+            padding: 15px;
+        }
+        table {
+            font-size: 0.85rem;
+        }
+        th, td {
+            padding: 8px;
+        }
+        .btn {
+            font-size: 0.9rem;
+            padding: 8px 18px;
+        }
+        select, input[type="date"] {
+            max-width: 100%;
+        }
+        .summary-card {
+            flex: 1 1 calc(50% - 20px);
+            max-width: 100%;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        h1 {
+            font-size: 1.8rem;
+        }
+        .container {
+            padding: 10px;
+        }
+        table {
+            font-size: 0.8rem;
+        }
+        th, td {
+            padding: 8px;
+        }
+        .btn {
+            font-size: 0.85rem;
+            padding: 8px 16px;
+        }
+        select, input[type="date"] {
+            max-width: 100%;
+        }
+        .summary-card {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    }

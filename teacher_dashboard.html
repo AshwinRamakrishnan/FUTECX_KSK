@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Importing Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+/* Resetting margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    background-color: #f0f0f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    backdrop-filter: blur(30px); /* Background blur effect */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    border-radius: 15px; /* Rounded corners for a smooth look */
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Slight border for definition */
+    color: #000000; /* White text to stand out on the glass background */
+}
+
+/* Heading */
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #4CAF50;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/* Rectangle Container for Grid */
+.rectangle-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+body {
+    /* Soft and calming pastel gradient background */
+    background: linear-gradient(to right, #FFDEE9, #B5FFFC); /* Fresh pink and turquoise */
+    font-family: 'Noto Sans', Arial, sans-serif;
+    color: #333;
+}
+
+h1 {
+    color: #FF6F61; /* A lovely coral color for the heading */
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.rectangle {
+    background: linear-gradient(to right, #A3C9E2, #D1A7E0); /* Soft pastel blue to lavender */
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 12px;
+    width: 220px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Rectangle Icon */
+.rectangle i {
+    font-size: 45px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.rectangle:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Slight lift and stronger shadow on hover */
+}
+
+.rectangle:hover i {
+    color: #ffffff; /* Icon color change on hover */
+}
+
+/* Rectangle Text */
+.rectangle p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Responsive Design Adjustments for Rectangle */
+@media (max-width: 768px) {
+    .rectangle {
+        width: 180px; /* Smaller size on mobile */
+        height: 160px; /* Adjust height for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .rectangle {
+        width: 100%; /* Full width on small screens */
+        height: auto; /* Auto height for text wrapping */
+    }
+}
+
+/* Attendance Section */
+.attendance-container {
+    margin-top: 40px;
+    display: none;
+    text-align: left;
+}
+
+/* Table Styling with Glassmorphism Effect */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Background blur effect */
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+th {
+    background: linear-gradient(135deg, #6ab7ff, #4a90e2); /* Light blue gradient */
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    animation: glow 1.5s infinite alternate;
+    backdrop-filter: blur(5px); /* Blur effect for header */
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(106, 183, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(74, 144, 226, 0.7);
+    }
+}
+
+td {
+    color: #333; /* Darker text for contrast */
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.1); /* Slight hover effect with semi-transparent background */
+    transition: background-color 0.3s ease;
+}
+
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(106, 183, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(74, 144, 226, 0.7);
+    }
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:hover td {
+    background: #e3f2fd;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Styling */
+.btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(45deg, #4CAF50, #66FF66); /* Green gradient */
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnn {
+    padding: 12px 25px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Logout Button */
+.logout {
+    margin-top: 30px;
+    background-color: #e53935; /* Red button color */
+    transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+    background-color: #d32f2f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .rectangle-container {
+        gap: 15px;
+    }
+
+    .rectangle {
+        width: 160px;
+        height: 140px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .rectangle-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .rectangle {
+        width: 100%;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .btn, .logout {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Present & Absent Button Styles */
+.absent {
+    background: linear-gradient(45deg, #FF0000, #FF4C4C); /* Red gradient for absent */
+}
+
+.present {
+    background: linear-gradient(45deg, #4CAF50, #66FF66); /* Green gradient for present */
+}
+
+/* Hover effect */
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Taiwan-Inspired Design Elements */
+
+
+.rectangle:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.rectangle i {
+    color: white;
+}
+
+.btn {
+    /* Inspired by Taiwan’s vibrancy */
+    transition: background-color 0.3s ease;
+}
+
+.btnn:hover {
+    background-color: #f50057;
+}
+
+.logout {
+    background-color: #d32f2f; /* Taiwan traditional red */
+    transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+    background-color: #c62828;
+}
+
+
+    </style>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getFirestore, doc, setDoc, Timestamp, getDoc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDUcPaGdOPQtsk9YqMeDWqvNKWFu7I-F_o",
+            authDomain: "test-420914.firebaseapp.com",
+            databaseURL: "https://test-420914-default-rtdb.firebaseio.com",
+            projectId: "test-420914",
+            storageBucket: "test-420914.appspot.com",
+            messagingSenderId: "551223275238",
+            appId: "1:551223275238:web:3d883e1e3ca2473d02d527",
+            measurementId: "G-S25F8L72DH"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        let currentPage = "departments";
+    
+        const studentData = {
+            "CSE": {
+                "1st Year": [
+                    { id: "821023104001", name: "John Doe" },
+                    { id: "821023104002", name: "Jane Smith" }
+                ],
+                "2nd Year": [
+                { id: "821023104001", name: "Abin Raj A" },
+                { id: "821023104002", name: "Akalya D" },
+                { id: "821023104003", name: "Anandhan V" },
+                { id: "821023104004", name: "Anisha A" },
+                { id: "821023104005", name: "Arjunan S" },
+                { id: "821023104006", name: "Ashwin R" },
+                { id: "821023104007", name: "Ayyappan M" },
+                { id: "821023104008", name: "Balamurugan K" },
+                { id: "821023104009", name: "Baranidharan S" },
+                { id: "821023104010", name: "Hariharan D" },
+                { id: "821023104011", name: "Jaya Kumar S" },
+                { id: "821023104012", name: "Kamalesh K" },
+                { id: "821023104013", name: "Karthika M" },
+                { id: "821023104014", name: "Kiruthika B" },
+                { id: "821023104015", name: "Lingam K" },
+                { id: "821023104016", name: "Malavika T" },
+                { id: "821023104017", name: "Manikannan K" },
+                { id: "821023104018", name: "Meeravathi S" },
+                { id: "821023104019", name: "Mohamed Jiyavudeen S" },
+                { id: "821023104020", name: "Monika P" },
+                { id: "821023104021", name: "Mullaivanan S" },
+                { id: "821023104022", name: "Prabhu K" },
+                { id: "821023104023", name: "Prakash T" },
+                { id: "821023104024", name: "Prem S" },
+                { id: "821023104025", name: "Rafeek Ahamed A" },
+                { id: "821023104026", name: "Raiyan M" },
+                { id: "821023104027", name: "Rashya G" },
+                { id: "821023104028", name: "Sabari Nathan S" },
+                { id: "821023104029", name: "Sandhiya R" },
+                { id: "821023104030", name: "Santhosh C" },
+                { id: "821023104031", name: "Santhosh M" },
+                { id: "821023104032", name: "Santhoshkumar U" },
+                { id: "821023104033", name: "Saranya M" },
+                { id: "821023104034", name: "Shalini V" },
+                { id: "821023104035", name: "Sindhuja D" },
+                { id: "821023104036", name: "Sivanesan M" },
+                { id: "821023104037", name: "Sriraam J" },
+                { id: "821023104038", name: "Stalin P" },
+                { id: "821023104039", name: "Surya R" },
+                { id: "821023104040", name: "Swathy V" },
+                { id: "821023104041", name: "Swetha S" },
+                { id: "821023104042", name: "Tamilselvan R" },
+                { id: "821023104043", name: "Vijay Amalan S" },
+                { id: "821023104044", name: "Vijithnikson R" },
+                { id: "821023104302", name: "Niyas Ahamed M" },
+                { id: "821023104303", name: "Sanjay D" },
+                { id: "821023104304", name: "Santhosh M" },
+                { id: "821023104305", name: "Sindhumathi S" },
+                { id: "821023104306", name: "Swetha T" },
+                { id: "821023104301", name: "Manoj B" }
+        
+            
+                    // Add more students
+                ]
+            },
+            "ECE": {
+                "1st Year": [
+                    { id: "821023204001", name: "Kavya R" },
+                    { id: "821023204002", name: "Vinoth V" }
+                ],
+                "2nd Year": [
+                    { id: "821023204001", name: "Gokul K" },
+                    { id: "821023204002", name: "Shalini A" }
+                ]
+            },
+            "AI & DS": {
+                "1st Year": [
+                    { id: "821023305001", name: "Dinesh P" },
+                    { id: "821023305002", name: "Ananya R" }
+                ],
+                "2nd Year": [
+                    { id: "821023305001", name: "Harini R" },
+                    { id: "821023305002", name: "Sriram V" }
+                ]
+            },
+            "AI & ML": {
+                "1st Year": [
+                    { id: "821023406001", name: "Rajesh N" },
+                    { id: "821023406002", name: "Vidhya K" }
+                ],
+                "2nd Year": [
+                    { id: "821023406001", name: "Krishna M" },
+                    { id: "821023406002", name: "Tanya P" }
+                ]
+            }
+        };
+
+        // Check for teacher role before accessing the dashboard
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const uid = user.uid;
+                const userDocRef = doc(db, "users", uid);
+                const docSnap = await getDoc(userDocRef);
+
+                if (docSnap.exists() && docSnap.data().role !== 'teacher') {
+                    alert('You are not authorized to access the teacher dashboard.');
+                    window.location.href = 'login.html'; // Redirect to login if not a teacher
+                } else {
+                    showDepartments();
+                }
+            } else {
+                window.location.href = 'login.html'; // Redirect to login if not logged in
+            }
+        });
+
+        window.showDepartments = function showDepartments() {
+            currentPage = "departments";
+            document.getElementById("department-section").style.display = "block";
+            document.getElementById("year-section").style.display = "none";
+            document.getElementById("attendance-section").style.display = "none";
+        };
+
+        window.loadYears = function loadYears(department) {
+            currentPage = "years";
+            document.getElementById("department-section").style.display = "none";
+            document.getElementById("year-section").style.display = "block";
+            document.getElementById("attendance-section").style.display = "none";
+        
+            document.getElementById("selected-department").innerText = department;
+        };
+        
+        window.loadAttendance = function loadAttendance(year) {
+            currentPage = "attendance";
+            const department = document.getElementById("selected-department").innerText;
+        
+            document.getElementById("department-section").style.display = "none";
+            document.getElementById("year-section").style.display = "none";
+            document.getElementById("attendance-section").style.display = "block";
+        
+            document.getElementById("selected-year").innerText = year;
+        
+            const students = studentData[department][year];
+            let studentRows = '';
+            students.forEach((student, index) => {
+                studentRows += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${student.name} - ${student.id}</td>
+                        <td><button class="btn" onclick="toggleAttendance(this)">Present</button></td>
+                    </tr>
+                `;
+            });
+            document.getElementById("student-list").innerHTML = studentRows;
+        };
+
+        window.toggleAttendance = function toggleAttendance(button) {
+            // Toggle button text and styles
+            if (button.textContent === "Present") {
+                button.textContent = "Absent";
+                button.classList.remove('present');
+                button.classList.add('absent');
+            } else {
+                button.textContent = "Present";
+                button.classList.remove('absent');
+                button.classList.add('present');
+            }
+        };
+
+        window.submitAttendance = async function submitAttendance() {
+            const department = document.getElementById("selected-department").innerText;
+            const year = document.getElementById("selected-year").innerText;
+            const date = new Date().toISOString().split('T')[0];  // Format date as YYYY-MM-DD
+            
+            console.log("Submitting attendance for department:", department);
+            console.log("Year:", year);
+            console.log("Date:", date);
+            
+            const attendance = {};
+            const rows = document.querySelectorAll('#student-list tr');
+            
+            rows.forEach((row) => {
+                const studentId = row.cells[1].innerText.split(" - ")[1];
+                const status = row.cells[2].querySelector("button").textContent;
+                attendance[studentId] = {
+                    status: status,
+                    studentId: studentId
+                };
+            });
+            
+            console.log("Attendance Data:", attendance);
+        
+            try {
+                const departmentRef = doc(db, "attendance", department, year, date);
+                
+                // Set attendance data in the Firestore document in the requested format
+                await setDoc(departmentRef, {
+                    attendance: attendance
+                }, { merge: true });  // Use merge to avoid overwriting existing data
+            
+                alert("Attendance Submitted!");
+                showDepartments();
+            } catch (error) {
+                console.error("Error submitting attendance:", error);
+                alert("There was an error submitting the attendance. Check the console for details.");
+            }
+        };
+        
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Teacher Dashboard</h1>
+
+        <div id="department-section">
+            <h2>Select Department</h2>
+            <div class="rectangle-container">
+                <button class="rectangle" onclick="loadYears('CSE')">
+                    <i class="fas fa-laptop-code"></i>
+                    CSE
+                </button>
+                <button class="rectangle" onclick="loadYears('ECE')">
+                    <i class="fas fa-microchip"></i>
+                    ECE
+                </button>
+                <button class="rectangle" onclick="loadYears('AI & DS')">
+                    <i class="fas fa-brain"></i>
+                    AI & DS
+                </button>
+                <button class="rectangle" onclick="loadYears('AI & ML')">
+                    <i class="fas fa-robot"></i>
+                    AI & ML
+                </button>
+            </div>
+        </div>
+
+        <div id="year-section" style="display: none;">
+            <h2>Department: <span id="selected-department"></span></h2>
+            <h3>Select Year</h3>
+            <div class="rectangle-container">
+                <button class="rectangle" onclick="loadAttendance('1st Year')">
+                    <i class="fas fa-calendar-day"></i> FIRST YEAR
+                </button>
+                <button class="rectangle" onclick="loadAttendance('2nd Year')">
+                    <i class="fas fa-calendar-week"></i> SECOND YEAR
+                </button>
+            </div>
+        </div>
+        
+        <div id="attendance-section" style="display: none;">
+            <h2>Department: <span id="selected-department"></span></h2>
+            <h3>Year: <span id="selected-year"></span></h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Student Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="student-list"></tbody>
+            </table>
+            <button class="btnn" onclick="submitAttendance()">Submit Attendance</button>
+            <button class="btn logout" onclick="logout()">Logout</button>
+        </div>
+    </div>
+</body>
+</html>
